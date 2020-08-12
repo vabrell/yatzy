@@ -8,8 +8,8 @@ class Yatzy {
         'Stor stege' => [2,3,4,5,6],
     ];
     private $pairs = [
-        'Par' => 1,
-        'Två par' => 2,
+        1 => 'Par',
+        2 => 'Två par',
     ];
 
     public function rollDice() {
@@ -45,7 +45,7 @@ class Yatzy {
             return $res === 2;
         }));
 
-        if ($pairs > 0) return array_keys($this->pairs, $pairs)[0];
+        if ($pairs > 0) return $this->pairs[$pairs];
 
         foreach ($results as $res) {
             if ($res === 3) return 'Triss';
